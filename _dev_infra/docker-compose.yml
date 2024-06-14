@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    deploy:
+      resources:
+        limits:
+          memory: 200M
