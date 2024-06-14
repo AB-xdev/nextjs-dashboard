@@ -1,11 +1,18 @@
+# Tutorial be like: Here's a demo, now sign up, get vendor locked and buy our stuff...
+# https://github.com/vercel/storage/issues/123#issuecomment-2049389012
 services:
-  db:
+  postgres:
     image: postgres:alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./_data/progres/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
     deploy:
       resources:
         limits:
-          memory: 200M
+          memory: 500M
